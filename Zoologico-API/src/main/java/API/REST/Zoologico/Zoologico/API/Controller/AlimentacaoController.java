@@ -1,21 +1,16 @@
 package API.REST.Zoologico.Zoologico.API.Controller;
 
 import API.REST.Zoologico.Zoologico.API.Model.Alimentacao;
-import API.REST.Zoologico.Zoologico.API.Model.Cuidador;
 import API.REST.Zoologico.Zoologico.API.Repository.AlimentacaoRepository;
-import API.REST.Zoologico.Zoologico.API.Repository.CuidadorRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/alimentacao")
 public class AlimentacaoController {
     private final AlimentacaoRepository alimentacaoRepository;
-
 
     public AlimentacaoController(AlimentacaoRepository alimentacaoRepository) {
         this.alimentacaoRepository = alimentacaoRepository;
@@ -27,10 +22,7 @@ public class AlimentacaoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Alimentacao>> list(@RequestParam(required = false) String especialidade,
-                                               @RequestParam(required = false) String turno) {
-        if (especialidade != null) return ResponseEntity.ok(alimentacaoRepository.findByEspecialidadeIgnoreCase(especialidade));
-        if (turno != null) return ResponseEntity.ok(alimentacaoRepository.findByTurnoIgnoreCase(turno));
+    public ResponseEntity<List<Alimentacao>> list() {
         return ResponseEntity.ok(alimentacaoRepository.findAll());
     }
 
@@ -55,4 +47,3 @@ public class AlimentacaoController {
         return ResponseEntity.noContent().build();
     }
 }
-
