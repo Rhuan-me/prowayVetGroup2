@@ -10,4 +10,5 @@ import java.util.List;
 public interface AlimentacaoRepository extends JpaRepository<Alimentacao,Long> {
     List<Alimentacao> findByComidaIgnoreCase(String comida);
     List<Alimentacao> findByAnimalId(Long animalId);
+
 }

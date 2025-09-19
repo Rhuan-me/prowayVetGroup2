@@ -4,9 +4,11 @@ import API.REST.Zoologico.Zoologico.API.Model.Alimentacao;
 import API.REST.Zoologico.Zoologico.API.Model.Animal;
 import API.REST.Zoologico.Zoologico.API.Repository.AlimentacaoRepository;
 import API.REST.Zoologico.Zoologico.API.Repository.AnimalRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class AlimentacaoService {
     private AlimentacaoRepository alimentacaoRepository;
 

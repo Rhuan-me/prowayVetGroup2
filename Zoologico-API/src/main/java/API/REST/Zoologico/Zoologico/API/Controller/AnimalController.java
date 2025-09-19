@@ -1,77 +1,66 @@
 package API.REST.Zoologico.Zoologico.API.Controller;
 
 import API.REST.Zoologico.Zoologico.API.Model.Animal;
-import API.REST.Zoologico.Zoologico.API.Repository.AnimalRepository;
 import API.REST.Zoologico.Zoologico.API.Service.AnimalService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDateTime;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/animal")
 public class AnimalController {
-    private final AnimalRepository animalRepository;
 
-    public AnimalController(AnimalRepository animalRepository) {
-        this.animalRepository = animalRepository;
+    private final AnimalService animalService;
+
+    public AnimalController(AnimalService animalService) {
+        this.animalService = animalService;
     }
 
     @GetMapping
-    public List<Animal> listar() {
-        return animalRepository.findAll();
+    public ResponseEntity<List<Animal>> listar(@RequestParam(required = false) String nome) {
+        if (nome != null && !nome.isEmpty()) {
+            return ResponseEntity.ok(animalService.findByNome(nome));
+        }
+        return ResponseEntity.ok(animalService.findAll());
     }
 
     @GetMapping("/{id}")
-    public Animal buscarPorId(@PathVariable Long id) {
-        return animalRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Animal não encontrado!"));
+    public ResponseEntity<Animal> buscarPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(animalService.findById(id));
     }
 
     @PostMapping
-    public Animal criar(@RequestBody Animal animal) {
-        return animalRepository.save(animal);
+    public ResponseEntity<Animal> criar(@RequestBody Animal animal) {
+        Animal novoAnimal = animalService.create(animal);
+        return new ResponseEntity<>(novoAnimal, HttpStatus.CREATED);
     }
 
     @PostMapping("/lote")
-    public List<Animal> criarEmLote(@RequestBody List<Animal> animais) {
-        return animalRepository.saveAll(animais);
+    public ResponseEntity<List<Animal>> criarEmLote(@RequestBody List<Animal> animais) {
+        List<Animal> novosAnimais = animalService.createAll(animais);
+        return new ResponseEntity<>(novosAnimais, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public Animal atualizar(@PathVariable Long id, @RequestBody Animal animalAtualizado) {
-        Animal existente = animalRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Animal não encontrado!"));
-
-        existente.setNome(animalAtualizado.getNome());
-        existente.setEspecie(animalAtualizado.getEspecie());
-        existente.setIdade(animalAtualizado.getIdade());
-        existente.setAlimentacao(animalAtualizado.getAlimentacao());
-        existente.setCuidadores(animalAtualizado.getCuidadores());
-
-        return animalRepository.save(existente);
+    public ResponseEntity<Animal> atualizar(@PathVariable Long id, @RequestBody Animal animalAtualizado) {
+        return ResponseEntity.ok(animalService.update(id, animalAtualizado));
     }
 
-    // 🔹 Deletar animal
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
-        Animal animal = animalRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Animal não encontrado!"));
-        animalRepository.delete(animal);
+    public ResponseEntity<Void> deletar(@PathVariable Long id) {
+        animalService.delete(id);
+        return ResponseEntity.noContent().build();
     }
-
 
     @GetMapping("/especie/{especie}")
-    public List<Animal> buscarPorEspecie(@PathVariable String especie) {
-        return animalRepository.findByEspecieIgnoreCase(especie);
+    public ResponseEntity<List<Animal>> buscarPorEspecie(@PathVariable String especie) {
+        return ResponseEntity.ok(animalService.findByEspecie(especie));
     }
 
     @GetMapping("/idade")
-    public List<Animal> buscarPorIdade(@RequestParam int min, @RequestParam int max) {
-        return animalRepository.findByIdade(min, max);
+    public ResponseEntity<List<Animal>> buscarPorIdade(@RequestParam int min, @RequestParam int max) {
+        return ResponseEntity.ok(animalService.findByIdade(min, max));
     }
-
 }

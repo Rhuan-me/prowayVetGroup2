@@ -22,7 +22,14 @@ public class AlimentacaoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Alimentacao>> list() {
+    public ResponseEntity<List<Alimentacao>> list(@RequestParam(required = false) String comida,
+                                                  @RequestParam(required = false) Long animalId) {
+        if (comida != null) {
+            return ResponseEntity.ok(alimentacaoRepository.findByComidaIgnoreCase(comida));
+        }
+        if (animalId != null) {
+            return ResponseEntity.ok(alimentacaoRepository.findByAnimalId(animalId));
+        }
         return ResponseEntity.ok(alimentacaoRepository.findAll());
     }
 

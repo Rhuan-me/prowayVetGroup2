@@ -2,10 +2,12 @@ package API.REST.Zoologico.Zoologico.API.Service;
 
 import API.REST.Zoologico.Zoologico.API.Model.Cuidador;
 import API.REST.Zoologico.Zoologico.API.Repository.CuidadorRepository;
+import org.springframework.stereotype.Service;
 
 
 import java.util.List;
 
+@Service
 public class CuidadorService {
     private CuidadorRepository cuidadorRepository;
 

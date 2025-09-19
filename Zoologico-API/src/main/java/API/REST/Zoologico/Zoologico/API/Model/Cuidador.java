@@ -1,13 +1,11 @@
 package API.REST.Zoologico.Zoologico.API.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,8 +21,7 @@ public class Cuidador {
     private String especialidade; // ex: mamíferos, répteis, aves
     private String turno; // manhã, tarde, noite
 
-
     @ManyToMany(mappedBy = "cuidadores")
+    @JsonIgnore // Adicionado para quebrar a recursão
     private Set<Animal> animais = new HashSet<>();
-
 }

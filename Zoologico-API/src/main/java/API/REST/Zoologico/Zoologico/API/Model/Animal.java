@@ -1,5 +1,6 @@
 package API.REST.Zoologico.Zoologico.API.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,8 +26,10 @@ public class Animal {
     private int idade;
 
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore // Evita recursão infinita ao serializar para JSON
     private List<Alimentacao> alimentacao;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "animal_cuidador",
@@ -35,6 +38,7 @@ public class Animal {
     )
     private Set<Cuidador> cuidadores = new HashSet<>();
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "habitat_id", nullable = false)
     private Habitat habitat;

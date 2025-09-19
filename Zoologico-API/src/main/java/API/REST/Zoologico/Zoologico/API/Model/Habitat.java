@@ -1,5 +1,6 @@
 package API.REST.Zoologico.Zoologico.API.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class Habitat {
 
     private int capacidade;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "habitat", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Animal> animais;
 
