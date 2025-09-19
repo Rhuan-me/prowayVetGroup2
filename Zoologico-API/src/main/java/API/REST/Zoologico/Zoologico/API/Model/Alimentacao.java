@@ -17,10 +17,11 @@ public class Alimentacao {
     private Long id;
 
     private String comida;
+
     private double quantidade;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "animal_id")
+    @JsonIgnore
     private Animal animal;
 }

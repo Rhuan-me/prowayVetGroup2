@@ -18,15 +18,19 @@ public class CuidadorService {
     public List<Cuidador> findAll(){
         return cuidadorRepository.findAll();
     }
+
     public List<Cuidador> createAll(List<Cuidador> cuidadors){
         return cuidadorRepository.saveAll(cuidadors);
     }
+
     public Cuidador create(Cuidador cuidador){
         return cuidadorRepository.save(cuidador);
     }
+
     public Cuidador findById(Long id){
         return cuidadorRepository.findById(id).orElseThrow(() -> new RuntimeException("Veterinário não encontrado!"));
     }
+
     public Cuidador update(Long id, Cuidador cuidadorAtualizado){
         Cuidador cuidador = findById(id);
 

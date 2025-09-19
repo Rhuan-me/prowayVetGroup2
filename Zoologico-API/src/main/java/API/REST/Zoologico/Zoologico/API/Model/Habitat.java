@@ -23,9 +23,5 @@ public class Habitat {
 
     private int capacidade;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "habitat", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Animal> animais;
-
 
 }

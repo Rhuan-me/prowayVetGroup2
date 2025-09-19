@@ -5,20 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab51835a-dedb-444d-96f1-2ce13b50832a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Controller/AlimentacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Controller/AlimentacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Controller/AnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Controller/AnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Controller/CuidadorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Controller/CuidadorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/DTos/AnimalDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/DTos/AnimalDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Model/Alimentacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Model/Alimentacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Model/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Model/Cuidador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Model/Cuidador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Model/Habitat.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Model/Habitat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Repository/AlimentacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Repository/AlimentacaoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Repository/AnimalRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Repository/AnimalRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Service/AlimentacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Service/AlimentacaoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Service/AnimalService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Service/AnimalService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Service/CuidadorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Service/CuidadorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Service/HabitatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/Service/HabitatService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/ZoologicoApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Zoologico-API/src/main/java/API/REST/Zoologico/Zoologico/API/ZoologicoApiApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +44,7 @@
     "Application.ZoologicoApiApplication.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.ZoologicoApiApplication.executor": "Run",
@@ -57,7 +58,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ZoologicoApiApplication">
+    <configuration name="ZoologicoApiApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="API.REST.Zoologico.Zoologico.API.ZoologicoApiApplication" />
+      <module name="Zoologico-API" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="API.REST.Zoologico.Zoologico.API.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ZoologicoApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="Zoologico-API" />
@@ -66,6 +80,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ZoologicoApiApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

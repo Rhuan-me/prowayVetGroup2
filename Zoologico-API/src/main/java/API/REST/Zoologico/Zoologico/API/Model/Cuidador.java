@@ -6,9 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Data
 @AllArgsConstructor
@@ -18,10 +15,6 @@ public class Cuidador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String especialidade; // ex: mamíferos, répteis, aves
-    private String turno; // manhã, tarde, noite
-
-    @ManyToMany(mappedBy = "cuidadores")
-    @JsonIgnore // Adicionado para quebrar a recursão
-    private Set<Animal> animais = new HashSet<>();
+    private String especialidade;
+    private String turno;
 }

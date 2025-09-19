@@ -26,20 +26,13 @@ public class Animal {
     private int idade;
 
     @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore // Evita recursão infinita ao serializar para JSON
+    @JsonIgnore
     private List<Alimentacao> alimentacao;
 
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(
-            name = "animal_cuidador",
-            joinColumns = @JoinColumn(name = "animal_id"),
-            inverseJoinColumns = @JoinColumn(name = "cuidador_id")
-    )
-    private Set<Cuidador> cuidadores = new HashSet<>();
-
-    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "habitat_id", nullable = false)
+    @JoinColumn(name = "cuidador_id")
+    private Cuidador cuidador;
+
+    @ManyToOne
     private Habitat habitat;
 }

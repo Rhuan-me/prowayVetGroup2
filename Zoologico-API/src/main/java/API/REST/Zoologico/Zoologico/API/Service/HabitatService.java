@@ -11,9 +11,7 @@ import java.util.Optional;
 
 @Service
 public class HabitatService {
-
-
-    private final HabitatRepository habitatRepository;
+    private HabitatRepository habitatRepository;
 
 
     public HabitatService(HabitatRepository habitatRepository) {
@@ -31,8 +29,9 @@ public class HabitatService {
     }
 
 
-    public Optional<Habitat> findById(Long id) {
-        return habitatRepository.findById(id);
+    public Habitat findById(Long id) {
+        return habitatRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Habitat não encontrado com id " + id));
     }
 
 

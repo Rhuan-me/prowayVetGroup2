@@ -38,7 +38,6 @@ public class AlimentacaoService {
 
         alimentacao.setComida(alimentacaoAtualizado.getComida());
         alimentacao.setQuantidade(alimentacaoAtualizado.getQuantidade());
-        alimentacao.setAnimal(alimentacaoAtualizado.getAnimal());
 
         return alimentacaoRepository.save(alimentacao);
     }

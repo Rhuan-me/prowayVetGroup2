@@ -16,7 +16,5 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
     @Query("SELECT a FROM Animal a WHERE a.idade BETWEEN :idadeMin AND :idadeMax")
     List<Animal> findByIdade(int idadeMin, int idadeMax);
 
-    long countByHabitat(Habitat habitat);
-
-    List<Animal> findByNomeContainingIgnoreCase(String nome); // Método adicionado
+    List<Animal> findByNomeContainingIgnoreCase(String nome);
 }
